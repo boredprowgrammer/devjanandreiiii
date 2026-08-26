@@ -5,29 +5,9 @@
  */
 $pageTitle = 'QR Code Generator';
 
-// HTTP hardening (mirrors AlgoPDF's posture: no framing, strict CSP, no sniffing).
-if (!headers_sent()) {
-    header('X-Content-Type-Options: nosniff');
-    header('X-Frame-Options: DENY');
-    header('Referrer-Policy: no-referrer');
-    header('X-Permitted-Cross-Domain-Policies: none');
-    header('X-XSS-Protection: 0');
-    header('Permissions-Policy: geolocation=(), microphone=(), camera=(), usb=()');
-    header(
-        "Content-Security-Policy: " .
-        "default-src 'self'; " .
-        "script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; " .
-        "style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://fonts.googleapis.com; " .
-        "font-src 'self' https://fonts.gstatic.com; " .
-        "img-src 'self' blob: data:; " .
-        "connect-src 'self' blob:; " .
-        "worker-src 'self' blob:; " .
-        "object-src 'none'; " .
-        "base-uri 'self'; " .
-        "form-action 'self'; " .
-        "frame-ancestors 'none'"
-    );
-}
+// Reuse AlgoPDF's centralized hardening (the CSP there already whitelists
+// cdnjs.cloudflare.com for the Font Awesome stylesheet + webfonts).
+include __DIR__ . '/../algopdf/partials/security.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
@@ -40,7 +20,7 @@ if (!headers_sent()) {
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
