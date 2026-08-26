@@ -1,0 +1,35 @@
+# AlgoPDF — Apache hardening (defense-in-depth; the app also sets these in PHP).
+Options -Indexes
+ServerSignature Off
+
+# Block direct web access to partials (they are includes only).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Front controller: route every request that is not a real file or directory
+  # to router.php (which serves assets and maps clean URLs to the pages).
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ router.php [L]
+
+  # Direct access to partials is forbidden.
+  RewriteRule ^partials/ - [F,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "no-referrer"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+  Header always set X-Permitted-Cross-Domain-Policies "none"
+  Header always set X-DNS-Prefetch-Control "off"
+  Header always set X-XSS-Protection "0"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), usb=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# Deny access to dotfiles (e.g. .htaccess, .git) and the service worker source
+# is fine to serve; just keep hidden config out of reach.
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
