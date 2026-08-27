@@ -291,7 +291,7 @@
       var img = new Image();
       img.onload = function () {
         try {
-          var maxDim = 1600;
+          var maxDim = 4000;
           var nw = img.naturalWidth || img.width;
           var nh = img.naturalHeight || img.height;
           var scale = Math.min(1, maxDim / Math.max(nw, nh));
@@ -372,8 +372,8 @@
           finish();
           return;
         }
-        var w = clamp(widthEl.value, 100, 5000);
-        var h = clamp(heightEl.value, 100, 5000);
+        var w = clamp(widthEl.value, 1, 20000);
+        var h = clamp(heightEl.value, 1, 20000);
         createImageBitmap(canvas).then(function (bmp) {
           detectPointsWorker(bmp, function (pts) {
             if (pts) afterDetect(canvas, w, h, pts);
@@ -454,8 +454,6 @@
     editOverlay.addEventListener("pointermove", function (ev) {
       if (!activeHandle) return;
       var pos = pointerPos(ev);
-      pos.x = Math.max(0, Math.min(editorState.W, pos.x));
-      pos.y = Math.max(0, Math.min(editorState.H, pos.y));
       editorState.points[activeHandle] = pos;
       drawOverlay();
     });

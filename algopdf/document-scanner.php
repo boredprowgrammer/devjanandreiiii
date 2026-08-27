@@ -68,12 +68,12 @@ include 'partials/head.php';
           <div class="grid grid-cols-2 gap-3">
             <label class="block">
               <span class="eyebrow">Paper width (px)</span>
-              <input id="ds-width" type="number" min="100" max="5000" value="850"
+              <input id="ds-width" type="number" min="1" max="10000" value="850"
                      class="mt-1.5 w-full rounded-md border border-ink-900/15 dark:border-paper-100/15 bg-paper-50 dark:bg-ink-800 px-3 py-2 text-sm text-ink-800 dark:text-paper-200 focus:outline-none" />
             </label>
             <label class="block">
               <span class="eyebrow">Paper height (px)</span>
-              <input id="ds-height" type="number" min="100" max="5000" value="1100"
+              <input id="ds-height" type="number" min="1" max="10000" value="1100"
                      class="mt-1.5 w-full rounded-md border border-ink-900/15 dark:border-paper-100/15 bg-paper-50 dark:bg-ink-800 px-3 py-2 text-sm text-ink-800 dark:text-paper-200 focus:outline-none" />
             </label>
           </div>
