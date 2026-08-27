@@ -72,7 +72,7 @@ include 'partials/head.php';
 
       <div class="mt-4 flex items-center gap-3">
         <button id="i2p-build" type="button" class="btn btn-primary" disabled>
-          <i class="fa-solid fa-spinner fa-spin text-base hidden" aria-hidden="true"></i>
+          <i id="i2p-spinner" class="fa-solid fa-spinner fa-spin text-base hidden" aria-hidden="true"></i>
           <span id="i2p-build-label">Build PDF</span>
         </button>
         <button id="i2p-clear" type="button" class="btn btn-secondary" hidden>Clear</button>

@@ -21,9 +21,9 @@
 
   if (!drop || !buildBtn || !clearBtn || !statusEl || !resultsEl) return;
 
-  function showSpinner(on) { spinner.classList.toggle("hidden", !on); }
-  function setBuildLabel(t) { buildLabel.textContent = t; }
-  function showProgress(on) { progressEl.classList.toggle("hidden", !on); }
+  function showSpinner(on) { if (spinner) spinner.classList.toggle("hidden", !on); }
+  function setBuildLabel(t) { if (buildLabel) buildLabel.textContent = t; }
+  function showProgress(on) { if (progressEl) progressEl.classList.toggle("hidden", !on); }
   function setProgress(pct, label) {
     progressBar.style.width = Math.max(0, Math.min(100, pct)) + "%";
     progressPct.textContent = Math.round(pct) + "%";

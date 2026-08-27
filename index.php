@@ -72,7 +72,7 @@
         </div>
         <div class="min-w-0 flex-1">
           <h2 class="font-medium text-base text-ink-900 dark:text-paper-50">AlgoPDF</h2>
-          <p class="text-sm text-ink-500 dark:text-ink-300 mt-0.5">Convert PDFs and images — turn pages into images, assemble images into documents, and add watermarks.</p>
+          <p class="text-sm text-ink-500 dark:text-ink-300 mt-0.5">Convert PDFs and images — turn pages into images, assemble images into documents, scan paper with a camera, and add watermarks.</p>
         </div>
         <i class="fa-solid fa-arrow-right text-base text-ink-300 dark:text-ink-500 group-hover:text-ink-700 dark:group-hover:text-paper-200 group-hover:translate-x-0\.5 transition-all shrink-0" aria-hidden="true"></i>
       </a>

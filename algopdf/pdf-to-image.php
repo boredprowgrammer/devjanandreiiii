@@ -75,7 +75,7 @@ include 'partials/head.php';
 
       <div class="mt-4 flex items-center gap-3">
         <button id="p2i-convert" type="button" class="btn btn-primary" disabled>
-          <i class="fa-solid fa-spinner fa-spin text-base hidden" aria-hidden="true"></i>
+          <i id="p2i-spinner" class="fa-solid fa-spinner fa-spin text-base hidden" aria-hidden="true"></i>
           <span id="p2i-convert-label">Convert</span>
         </button>
         <button id="p2i-clear" type="button" class="btn btn-secondary" hidden>Clear</button>

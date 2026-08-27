@@ -54,6 +54,17 @@ include 'partials/head.php';
         </div>
         <i class="fa-solid fa-arrow-right text-base text-ink-300 dark:text-ink-500 group-hover:text-ink-700 dark:group-hover:text-paper-200 group-hover:translate-x-0\.5 transition-all shrink-0" aria-hidden="true"></i>
       </a>
+
+      <a href="document-scanner.php" class="group flex items-center gap-4 p-5 bg-paper-50 dark:bg-ink-900 border border-ink-900/10 dark:border-paper-100/10 rounded-lg hover:border-ink-900/25 dark:hover:border-paper-100/25 transition-colors duration-150">
+        <div class="w-14 h-14 shrink-0 rounded-lg bg-ink-900/5 dark:bg-paper-100/10 flex items-center justify-center text-ink-700 dark:text-paper-200" aria-hidden="true">
+          <i class="fa-solid fa-crop-simple text-3xl" aria-hidden="true"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+          <h2 class="font-medium text-base text-ink-900 dark:text-paper-50">Document Scanner</h2>
+          <p class="text-sm text-ink-500 dark:text-ink-300 mt-0.5">Detect and flatten a document from a photo or camera.</p>
+        </div>
+        <i class="fa-solid fa-arrow-right text-base text-ink-300 dark:text-ink-500 group-hover:text-ink-700 dark:group-hover:text-paper-200 group-hover:translate-x-0\.5 transition-all shrink-0" aria-hidden="true"></i>
+      </a>
     </div>
   </section>
 

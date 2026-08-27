@@ -77,10 +77,13 @@ self.addEventListener("fetch", function (event) {
     const cached = await caches.open(CACHE).then(function (c) { return c.match(req); });
 
     // Kick off a background refresh of the cache without touching the response
-    // body the browser is about to consume.
+    // body the browser is about to consume. Clone synchronously here — before
+    // the returned (original) response is handed to the browser — otherwise the
+    // browser may consume the body first and the clone throws "already used".
     const refresh = fetch(req).then(function (fresh) {
       if (fresh && (fresh.ok || fresh.type === "opaque")) {
-        caches.open(CACHE).then(function (c) { c.put(req, fresh.clone()); });
+        const copy = fresh.clone();
+        caches.open(CACHE).then(function (c) { c.put(req, copy); });
       }
       return fresh;
     }).catch(function () { return cached; });
